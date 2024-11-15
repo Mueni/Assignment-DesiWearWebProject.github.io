@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - My E-commerce Store</title>
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="./productPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+      <nav class="navbar">
+        <div class="logo">DesiWear</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="./productPage.html">Products</a></li>
+            <li><a href="../CartScreen//cartPage.html" class="cart-link">Cart
+                <span class="cart-counter">0
+            </a>
+            </li>
+          
+            <!-- <li><a href="../ProductsScreen/productPage.html">Products</a></li>
+            <li><a href="../CartScreen//cartPage.html">Cart</a></li> -->
+        </ul>
+    </nav>
+
+    <!-- Product Catalog Section -->
+    <main class="product-catalog">
+        <!-- Filter Sidebar -->
+        <aside class="filters">
+            <h2>Filters</h2>
+
+            <div class="filter-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li>
+                        <input type="radio" name="category" id="all" value="" checked>
+                        <label for="all">All</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="category" id="men" value="men">
+                        <label for="men">Men</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="category" id="women" value="women">
+                        <label for="women">Women</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="category" id="kids" value="kids">
+                        <label for="kids">Kids</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="filter-section">
+                <h3>Price Range</h3>
+                <div class="price-range">
+                    <input type="number" id="min-price" placeholder="Min">
+                    <input type="number" id="max-price" placeholder="Max">
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Size</h3>
+                <div class="size-options">
+                    <button class="size-btn">S</button>
+                    <button class="size-btn">M</button>
+                    <button class="size-btn">L</button>
+                    <button class="size-btn">XL</button>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <section class="products-section">
+            <!-- Top Bar -->
+            <div class="products-top-bar">
+                <div class="products-count">Showing 1-12 of 48 products</div>
+                <div class="sort-options">
+                    <label for="sort">Sort by:</label>
+                    <select id="sort">
+                        <option value="popular">Most Popular</option>
+                        <option value="newest">Newest</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <!-- <div class="product-card">
+                    <div class="product-image">
+                        <img src="product1.jpg" alt="Product 1">
+                        <div class="product-overlay">
+                            <button class="quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic T-Shirt</h3>
+                        <p class="price">$29.99</p>
+                        <div class="color-options">
+                            <span class="color-dot" style="background-color: #000;">
+                            <span class="color-dot" style="background-color: #fff;">
+                            <span class="color-dot" style="background-color: #ff0000;">
+                        </div>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div> -->
+
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">4</button>
+                <button class="page-btn next">→</button>
+            </div>
+        </section>
+    </main>
+    <!-- Product Quick View Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content" data-product-id="">
+            <span class="close-modal">&times;</span>  
+            <div class="product-details">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="modal-main-image" src="" alt="Product Image">
+                    </div>
+                    <div class="thumbnail-images">
+                    </div>
+                </div>
+                <div class="product-info-details">
+                    <h2 id="modal-product-name"></h2>
+                    <p class="modal-price" id="modal-product-price"></p>
+                    <div class="product-status" id="modal-product-status"></div>
+    
+                    <div class="color-selection">
+                        <h3>Colors</h3>
+                        <div class="color-options" id="modal-color-options">
+                            <!-- Colors will be added dynamically -->
+                        </div>
+                    </div>
+    
+                    <div class="size-selection">
+                        <h3>Size</h3>
+                        <div class="size-options" id="modal-size-options">
+                            <!-- Sizes will be added dynamically -->
+                        </div>
+                    </div>
+    
+                    <div class="quantity-selector">
+                        <h3>Quantity</h3>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" id="decrease-quantity">-</button>
+                            <input type="number" id="quantity" value="1" min="1" max="10">
+                            <button class="quantity-btn" id="increase-quantity">+</button>
+                        </div>
+                    </div>
+    
+                    <div class="product-description">
+                        <h3>Description</h3>
+                        <p id="modal-product-description"></p>
+                    </div>
+    
+                    <div class="action-buttons">
+                        <button id="modal-add-to-cart" class="add-to-cart-btn">Add to Cart</button>
+                        <button class="buy-now-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+    <script src="./productPage.js"></script>
+    <script src="../CartScreen/cartPage.js"></script>
+</body>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We are dedicated to providing quality products and excellent customer service. Our mission is to make
+                online shopping easy and enjoyable.</p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Help & Info</h3>
+            <ul>
+                <li><a href="#">Shipping Information</a></li>
+                <li><a href="#">Returns Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <ul>
+                <li>Email: info@store.com</li>
+                <li>Phone: (555) 123-4567</li>
+                <li>Address: 123 Shopping St</li>
+                <li>City, State 12345</li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="https://instagram.com/yourstore" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/yourstore" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/yourstore" target="_blank" class="social-icon">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Your Store Name. All rights reserved.</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 Your Store Name. All rights reserved.</p>
+    </div>
+</footer>
+
+</html>

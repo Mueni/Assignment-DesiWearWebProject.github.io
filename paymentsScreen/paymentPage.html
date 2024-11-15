@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Your Store Name</title>
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="./paymentPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+     <!-- Navigation Bar -->
+     <nav class="navbar">
+        <div class="logo">DesiWear</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../ProductsScreen/productPage.html">Products</a></li>
+            <li><a href="../CartScreen/cartPage.html" class="cart-link">Cart
+                <span class="cart-counter">0
+            </a>
+            </li>
+          
+            <!-- <li><a href="../ProductsScreen/productPage.html">Products</a></li>
+            <li><a href="../CartScreen//cartPage.html">Cart</a></li> -->
+        </ul>
+    </nav>
+
+    <main class="checkout-container">
+        <div class="checkout-content">
+            <!-- Progress Bar -->
+            <div class="checkout-progress">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-name">Personal Details</div>
+                </div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-name">Shipping</div>
+                </div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-name">Payment</div>
+                </div>
+            </div>
+
+            <form id="checkout-form">
+                <!-- Personal Details Section -->
+                <div class="form-section active" id="personal-details">
+                    <h2>Personal Details</h2>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="firstName">First Name*</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="lastName">Last Name*</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="email">Email Address*</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="phone">Phone Number*</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipping Details Section -->
+                <div class="form-section" id="shipping-details">
+                    <h2>Shipping Details</h2>
+                    <div class="form-group">
+                        <div class="form-field">
+                            <label for="address">Street Address*</label>
+                            <input type="text" id="address" name="address" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="city">City*</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="state">State/Province*</label>
+                                <input type="text" id="state" name="state" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-field">
+                                <label for="zipCode">ZIP/Postal Code*</label>
+                                <input type="text" id="zipCode" name="zipCode" required>
+                            </div>
+                            <div class="form-field">
+                                <label for="country">Country*</label>
+                                <select id="country" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <!-- Add country options -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Details Section -->
+                <div class="form-section" id="payment-details">
+                    <h2>Payment Details</h2>
+                    <div class="form-group">
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <input type="radio" id="credit-card" name="payment-method" value="credit-card" checked>
+                                <label for="credit-card">Credit Card</label>
+                            </div>
+                            <div class="payment-method">
+                                <input type="radio" id="paypal" name="payment-method" value="paypal">
+                                <label for="paypal">PayPal</label>
+                            </div>
+                        </div>
+
+                        <div id="credit-card-details">
+                            <div class="form-field">
+                                <label for="cardNumber">Card Number*</label>
+                                <input type="text" id="cardNumber" name="cardNumber" maxlength="19" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="expiryDate">Expiry Date*</label>
+                                    <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" maxlength="5" required>
+                                </div>
+                                <div class="form-field">
+                                    <label for="cvv">CVV*</label>
+                                    <input type="text" id="cvv" name="cvv" maxlength="4" required>
+                                </div>
+                            </div>
+                            <div class="form-field">
+                                <label for="cardName">Name on Card*</label>
+                                <input type="text" id="cardName" name="cardName" required>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div id="cart-items">
+                        <!-- Cart items will be inserted here -->
+                    </div>
+                    <div class="summary-totals">
+                        <div class="summary-row">
+                            <span>Subtotal
+                            <span id="subtotal">$0.00
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping
+                            <span id="shipping">$0.00
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total
+                            <span id="total">$0.00
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" id="prev-btn" class="btn secondary" disabled>Previous</button>
+                    <button type="button" id="next-btn" class="btn primary">Next</button>
+                    <button type="submit" id="submit-btn" class="btn primary" style="display: none;">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="./paymentScreen.js"></script>
+    <script src="../CartScreen/cartPage.js"></script>
+
+</body>
+
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>We are dedicated to providing quality products and excellent customer service. Our mission is to make online shopping easy and enjoyable.</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Help & Info</h3>
+            <ul>
+                <li><a href="#">Shipping Information</a></li>
+                <li><a href="#">Returns Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <ul>
+                <li>Email: info@store.com</li>
+                <li>Phone: (555) 123-4567</li>
+                <li>Address: 123 Shopping St</li>
+                <li>City, State 12345</li>
+            </ul>
+        </div>
+        <div class="footer-bottom">
+            <div class="social-icons">
+                <a href="https://instagram.com/yourstore" target="_blank" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://facebook.com/yourstore" target="_blank" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/yourstore" target="_blank" class="social-icon">
+                    <i class="fab fa-x-twitter"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Your Store Name. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 Your Store Name. All rights reserved.</p>
+    </div>
+</footer>
+</html>
