@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shopping Cart - My E-commerce Store</title>
-    <link rel="stylesheet" href="/app.css">
-    <link rel="stylesheet" href="/cartPage.css">
+    <link rel="stylesheet" href="../app.css">
+    <link rel="stylesheet" href="./cartPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 </head>
@@ -16,9 +16,9 @@
     <nav class="navbar">
         <div class="logo">DesiWear</div>
         <ul class="nav-links">
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/ProductsScreen/productPage.html">Products</a></li>
-            <li><a href="/cartPage.html" class="cart-link">Cart
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../ProductsScreen/productPage.html">Products</a></li>
+            <li><a href="./cartPage.html" class="cart-link">Cart
                     <span class="cart-counter">0
                 </a>
             </li>
@@ -58,7 +58,7 @@
             <div id="empty-cart" style="display: none;">
                 <h2>Your cart is empty</h2>
                 <p>Looks like you haven't added any items to your cart yet.</p>
-                <a href="/ProductsScreen/productPage.html" class="continue-shopping">Continue Shopping</a>
+                <a href="../ProductsScreen/productPage.html" class="continue-shopping">Continue Shopping</a>
             </div>
         </div>
     </main>
@@ -67,7 +67,7 @@
     <span>${item.quantity}
     <button onclick="updateQuantity(${item.id}, 1)">+</button> -->
 
-    <script src="/cartPage.js" defer></script>
+    <script src="./cartPage.js" defer></script>
     <script defer>
         // Function to display cart items
         function displayCartItems() {
